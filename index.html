@@ -123,7 +123,7 @@
 
                 <form class="hero-search quicksand" onsubmit="return false;">
                     <input type="search" placeholder="Search for food, restaurants...">
-                    <button type="submit"><i class="bi bi-search"></i></button>
+                    <button type="submit" onclick="showSearchNotAvailable(event)"><i class="bi bi-search"></i></button>
                 </form>
 
                 <div class="hero-pills d-flex flex-wrap gap-2 mb-4">
@@ -351,7 +351,7 @@
         </div>
 
         <div class="text-center mt-5">
-            <a href="#" class="rb-btn">View Full Menu <i class="bi bi-arrow-right ms-1"></i></a>
+            <a href="#" class="rb-btn" onclick="showComingSoon(event)">View Full Menu <i class="bi bi-arrow-right ms-1"></i></a>
         </div>
     </div>
 </section>
@@ -511,7 +511,7 @@
                         <span class="offer-tag">🎉 Today Only</span>
                         <h3>50% OFF on First Order</h3>
                         <p>Use code <strong>RUSH50</strong> and get flat 50% off on your very first order. No minimum order required!</p>
-                        <a href="#" class="rb-btn mt-3">Claim Offer</a>
+                        <a href="#" class="rb-btn mt-3" onclick="showComingSoon(event)">Claim Offer</a>
                     </div>
                     <img src="./assets/images/Chicken-Tikka.webp" loading="lazy" alt="offer" class="offer-img">
                 </div>
@@ -522,7 +522,7 @@
                         <span class="offer-tag">🚴 Free Delivery</span>
                         <h3>Free Delivery All Week</h3>
                         <p>Order above ₹299 and enjoy completely free delivery from any restaurant. All day, every day!</p>
-                        <a href="#" class="rb-btn rb-btn-dark mt-3">Order Now</a>
+                        <a href="#" class="rb-btn rb-btn-dark mt-3" onclick="showComingSoon(event)">Order Now</a>
                     </div>
                     <img src="./assets/images/Margerita.webp" loading="lazy" alt="offer" class="offer-img">
                 </div>
@@ -889,7 +889,7 @@
     <div class="popup-progress">
         <div class="popup-progress-bar"></div>
     </div>
-    <small>Payment gateway launching very soon</small>
+    <small>We are launching full app very soon</small>
     <button class="rb-btn w-100 mt-4" onclick="closePopup()">Got it, I'll wait!</button>
 </div>
 
@@ -1048,6 +1048,18 @@
         document.getElementById('comingSoonPopup').classList.remove('show');
         document.getElementById('comingSoonOverlay').classList.remove('show');
         document.body.style.overflow = '';
+    }
+
+    function showComingSoon(e) {
+        e.preventDefault();
+        document.getElementById('comingSoonPopup').classList.add('show');
+        document.getElementById('comingSoonOverlay').classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function showSearchNotAvailable(e) {
+        e.preventDefault();
+        alert('Not Available');
     }
 
     // ============ TOAST ============
